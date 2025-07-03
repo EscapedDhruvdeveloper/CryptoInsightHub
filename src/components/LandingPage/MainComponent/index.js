@@ -6,9 +6,14 @@ import iphone from "../../../assets/iphone.png";
 import { motion } from "framer-motion";
 import { RWebShare } from "react-web-share";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 function MainComponent() {
+ 
+  let navigate = useNavigate();
+ 
   return (
+
     <div className="main-flex">
       <div className="info-landing">
         <motion.h1
@@ -45,16 +50,7 @@ function MainComponent() {
           <a href="/dashboard">
             <Button text={"Dashboard"} />
           </a>
-          <RWebShare
-            data={{
-              text: "CryptoDashboard made by Avi Vashishta using React JS.",
-              url: "https://crypto-dashboard-jan.netlify.app",
-              title: "CryptoTracker.",
-            }}
-            onClick={() => toast.info("App Shared!")}
-          >
-            <Button text={"Share App"} outlined={true} />
-          </RWebShare>
+          <Button text={"Share App"} outlined={true} onClick={navigate('/')} />
         </motion.div>
       </div>
       <div className="gradient-div">
